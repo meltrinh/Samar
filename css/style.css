@@ -1,0 +1,571 @@
+/* This changes all the animations globally */
+:root {
+  --color-pink: #f55f8d;
+}
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #636363;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1199px;
+  margin: auto;
+}
+
+.title p {
+  color: var(--color-pink);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.title h2 {
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.btn-grad {
+  /*  linear-gradient(hướng trải màu, danh sách các màu );
+        _ to right: màu đang được trải từ trái sang phải
+        _ #fc00ff 0%, #00dbde 51%, #fc00ff 100%: thứ tự màu cần trải, phần trăm sau mã màu là vị trí bắt đầu trải của màu đó.
+          Nếu không thêm phần trăm thì linear-gradient sẽ tự chia vùng màu sao cho đều nhau
+    */
+  background-image: linear-gradient(
+    to right,
+    #f55f8d 0%,
+    #f8ae56 51%,
+    #f55f8d 100%
+  );
+
+  padding: 20px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+
+  /*   tăng kích thước của màu nền, giúp vùng trải màu rộng hơn làm màu loan ra rộng hơn */
+  background-size: 200%;
+
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 30px;
+  display: block;
+  border: 1px solid transparent;
+  font-size: 15px;
+}
+
+.btn-grad:hover {
+  /*   Khi hover chỉnh vị trí ưu tiên hiển thị của màu nền.
+    Mặc định không xét giá trị cho background-position
+    thì sẽ có giá trị mặc định background-position: left top;
+    */
+  background-position: right center;
+
+  color: #fff;
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 24px;
+  color: #000;
+}
+
+/* HEADER */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  margin-right: 30px;
+}
+
+.header__content li {
+  padding: 55px 15px;
+}
+
+.header__content ul li a span {
+  color: #070120;
+  text-transform: capitalize;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.6s;
+}
+
+.header__content a span {
+  /* inline-block för att transition ska kunna röra sig upp och ner) */
+  display: inline-block;
+}
+
+.header__content i {
+  font-size: 9px;
+  margin-top: -3px;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+
+.header__content ul li:hover span,
+.header__content ul li:hover i {
+  color: var(--color-pink);
+}
+
+.header__content li:hover span {
+  animation: upToDown 0.3s forwards;
+}
+
+/* CAROUSEL */
+.carousel {
+  background-image: url(../img/pic2.png);
+  background-size: 100%;
+  padding-top: 180px;
+  overflow: hidden;
+}
+
+.carousel__content {
+  display: flex;
+}
+
+.carousel__left {
+  width: 60%;
+  padding-top: 50px;
+}
+
+.carousel__right {
+  width: 40%;
+  padding-left: 50px;
+}
+
+.carousel__content .carousel__article p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.carousel__article li {
+  font-size: 20px;
+  padding: 10px 5px 10px 0px;
+}
+
+.carousel__article i {
+  background-image: linear-gradient(
+    to right,
+    #f55f8d 0%,
+    #f8ae56 51%,
+    #f55f8d 100%
+  );
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  align-items: center;
+  color: white;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 24px;
+  background-size: 200%;
+  margin-right: 15px;
+}
+
+.carousel__article ul {
+  margin-bottom: 20px;
+}
+
+.carousel__img {
+  display: block;
+}
+
+/* SERVICE */
+.service {
+  background-image: url(../img/bg2.png);
+  background-position: top center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 120px;
+}
+
+.service .title h2 {
+  margin-bottom: 40px;
+}
+
+.service__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 0 30px;
+  background-color: white;
+}
+
+.service__items {
+  border-radius: 10px;
+  padding: 30px 45px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 0.5s;
+  border: 3px solid transparent;
+}
+
+.service__items:hover {
+  transform: translateY(-20px);
+  border-image: url(../img/br.png) 1 round;
+}
+
+.service__items h3 {
+  margin: 15px 0;
+  color: #262626;
+  font-size: 24px;
+}
+
+.service__items img {
+  height: 215px;
+  width: 215px;
+}
+
+/* ABOUT US */
+.aboutus {
+  padding: 115px 0px 85px;
+  background-image: url(../img/bg15.png);
+  background-size: 100%;
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+.aboutus__content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.aboutus__left {
+  width: 50%;
+  position: absolute;
+  left: -100px;
+}
+
+.aboutus__left img {
+  width: 100%;
+  border-radius: 0 100px 100px 0;
+}
+
+.aboutus__right {
+  width: 50%;
+}
+
+.aboutus__right .title p,
+.aboutus__article p {
+  margin-bottom: 15px;
+}
+
+.aboutus__article ul li {
+  font-size: 16px;
+}
+
+.aboutus__article ul {
+  margin-bottom: 30px;
+}
+
+.aboutus__article ul li i {
+  font-size: 24px;
+  color: var(--color-pink);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* NUMBER */
+.number {
+  padding: 80px 0px 50px 0;
+  text-align: center;
+  background-image: url(../img/bg14.png);
+  background-position: center;
+  overflow: hidden;
+}
+
+.number__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number__items {
+  width: 25%;
+}
+
+.number__items i {
+  background-image: linear-gradient(
+    to right,
+    #f55f8d 0%,
+    #f8ae56 51%,
+    #f55f8d 100%
+  );
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  align-items: center;
+  color: white;
+  font-size: 45px;
+  text-align: center;
+  line-height: 1.8;
+  background-size: 200%;
+  margin-bottom: 15px;
+}
+
+.number__items .count {
+  font-size: 65px;
+  color: var(--color-pink);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.number__items p {
+  font-size: 18px;
+  color: #262626;
+}
+
+/* FEATURES */
+.features {
+  padding-top: 115px;
+  background-image: url(../img/bg2.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+.features__content {
+  display: flex;
+}
+
+.features__left,
+.features__right {
+  width: 50%;
+}
+
+/* LEFT SIDE */
+
+.features__items {
+  padding: 0 50px 30px 0;
+  position: relative;
+  /* z-index: defines the stacking order of positioned elements
+   By default, the element with a position and created first (according to the HTML code order from top to bottom)
+   will have a lower index than the element with a position created later.
+   => To place the text on top of the after pseudo-element, the index must be higher than after.
+*/
+}
+
+.features__items:nth-of-type(2) {
+  padding: 0px 0px 30px 50px;
+}
+
+.features__card {
+  display: flex;
+  width: 550px;
+  height: 150px;
+  background: white;
+  padding: 30px;
+  position: relative;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 50px 0px;
+  overflow: hidden;
+}
+
+.features__card i {
+  width: 80px;
+  height: 80px;
+  font-size: 80px;
+  text-align: center;
+  line-height: 1;
+  color: var(--color-pink);
+}
+
+.features__card div {
+  /*! Ask mentor! cannot get the text to become white? */
+  padding-left: 25px;
+  z-index: 1;
+}
+
+.features__card::after {
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    #f55f8d 0,
+    #f8ae56 51%,
+    #f55f8d 100%
+  );
+  background-size: 200%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.5s;
+  color: white;
+}
+
+.features .features__card:hover::after{
+  opacity: 1;
+}
+
+.features .features__card:hover i ,.features .features__card:hover div{
+  color: white !important;
+}
+/* RIGHT SIDE */
+
+.features__banner {
+  margin-right: -80px;
+}
+
+.features__banner img {
+  width: 100%;
+  animation: move2 5s infinite;
+}
+
+/* FOOTER */
+footer {
+  background-image: url(../img/pattern2.png);
+  width: 100%;
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.footer__top {
+  display: flex;
+  padding: 50px 60px;
+  border-radius: 10px;
+  background-image: url(../img/pattern3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.footer__newsletter,
+.footer__form {
+  width: 50%;
+}
+
+.footer__newsletter {
+  padding-bottom: 20px;
+}
+
+.footer__newsletter h3 {
+  font-size: 28px;
+}
+
+.footer__form {
+  display: flex;
+}
+
+.footer__form input {
+  border-color: transparent;
+  font-size: 15px;
+  padding: 20px;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  color: #888;
+  flex: 1;
+  transition: all 0.5s;
+}
+
+.form-btn-grad {
+  /*  linear-gradient(hướng trải màu, danh sách các màu );
+        _ to right: màu đang được trải từ trái sang phải
+        _ #fc00ff 0%, #00dbde 51%, #fc00ff 100%: thứ tự màu cần trải, phần trăm sau mã màu là vị trí bắt đầu trải của màu đó.
+          Nếu không thêm phần trăm thì linear-gradient sẽ tự chia vùng màu sao cho đều nhau
+    */
+  background-image: linear-gradient(
+    to right,
+    #f55f8d 0%,
+    #f8ae56 51%,
+    #f55f8d 100%
+  );
+
+  padding: 20px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+
+  /*   tăng kích thước của màu nền, giúp vùng trải màu rộng hơn làm màu loan ra rộng hơn */
+  background-size: 200%;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-color: transparent;
+  font-size: 20px;
+  border-radius: 0 5px 5px 0;
+}
+
+.footer__contact {
+  display: flex;
+  padding: 70px 0;
+}
+
+.footer__items {
+  width: 25%;
+}
+
+.footer__copyright {
+  display: flex;
+}
+
+/* KEYFRAMES */
+@keyframes upToDown {
+  49% {
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  51% {
+    opacity: 1;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: rotate(1deg) translate(2px, 2px);
+  }
+
+  50% {
+    transform: rotate(-1deg) translate(-2px, -2px);
+  }
+
+  100% {
+    transform: rotate(1deg) translate(2px, 2px);
+  }
+}
